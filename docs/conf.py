@@ -12,9 +12,10 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+import re
+sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
@@ -40,7 +41,25 @@ release = u'0.0.1'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',
+    'sphinx.ext.viewcode',
 ]
+
+autoclass_content = 'both'
+
+autodoc_default_flags = ['members', 'private-members', 'special-members',
+                         'show-inheritance']
+
+def autodoc_skip_member(app, what, name, obj, skip, options):
+    exclusions = ('__weakref__', '__doc__', '__module__', '__dict__', '__init__')
+    exclude = name in exclusions
+    hidden_regex = re.compile('^_{1}[a-zA-Z].*$')
+    return (skip or exclude) and not hidden_regex.match(name)
+
+def setup(app):
+    app.connect('autodoc-skip-member', autodoc_skip_member)
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
