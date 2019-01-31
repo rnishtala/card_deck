@@ -12,9 +12,7 @@ Welcome to Deck of cards's documentation!
 
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+CardDeck main
+====================
+.. automodule:: card_deck.card_deck
+   :members:

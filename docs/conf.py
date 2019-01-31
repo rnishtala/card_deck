@@ -15,7 +15,7 @@
 import os
 import sys
 import re
-sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('..'))
 
 
 # -- Project information -----------------------------------------------------
@@ -127,21 +127,21 @@ htmlhelp_basename = 'Deckofcardsdoc'
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
-    #
-    # 'papersize': 'letterpaper',
+    #The paper size ('letterpaper' or 'a4paper').
 
-    # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
+    'papersize': 'letterpaper',
 
-    # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
+    #The font size ('10pt', '11pt' or '12pt').
 
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
+    'pointsize': '10pt',
+
+    #Additional stuff for the LaTeX preamble.
+
+    'preamble': '',
+
+    #Latex figure (float) alignment
+
+    'figure_align': 'htbp',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
